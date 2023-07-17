@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-compatible" content="IE-edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Registration Form</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<style>
+		.container {
+			max-width: 800px;
+		}
+
+		.registration-form {
+			width: 80%;
+			margin: 0 auto;
+			background-color: #f5f5f5;
+			padding: 20px;
+			border-radius: 5px;
+		}
+
+		.form-title {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.form-group label {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body style="background-color: aquamarine;">
+	<div class="container mt-5">
+		<form class="registration-form" onsubmit="return validateForm()">
+			<h2 class="form-title">Registration Form</h2>
+			<div class="form-group">
+				<label for="textbox">Name</label>
+				<input type="text" class="form-control" id="textbox" placeholder="Enter Name">
+			</div>
+			<div class="form-group">
+				<label for="textarea">Address</label>
+				<textarea class="form-control" id="textarea" rows="3" placeholder="Enter Address"></textarea>
+			</div>
+            <div class="form-group">
+				<label for="mobile-number">Mobile Number</label>
+				<input type="tel" class="form-control" id="mobile-number" placeholder="Enter Mobile Number">
+			</div>
+			<div class="form-group">
+				<label>Gender</label>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radio" id="radio1" value="option1" checked>
+					<label class="form-check-label" for="radio1">Male</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="radio" id="radio2" value="option2">
+					<label class="form-check-label" for="radio2">Female</label>
+				</div>
+			</div>
+            <div class="form-group">
+                <label>Interests</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkbox1">
+                    <label class="form-check-label" for="checkbox1">Sports</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkbox2">
+                    <label class="form-check-label" for="checkbox2">Music</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkbox3">
+                    <label class="form-check-label" for="checkbox3">Reading</label>
+                </div>
+            </div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" placeholder="Enter Password">
+			</div>
+			<div class="form-group">
+				<label for="confirm-password">Confirm Password</label>
+				<input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
+			</div>
+			
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="checkbox4">
+                <label class="form-check-label" for="checkbox4">I accept the terms and conditions.</label>
+            </div>
+            <br>    
+
+			<button type="submit" class="btn btn-primary" style="background-color: #007bff;">Register</button>
+			<button type="reset" class="btn btn-secondary ml-2">Reset</button>
+		</form>
+	</div>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script>
+		function validateForm() {
+			var name = document.getElementById("textbox").value;
+			var address = document.getElementById("textarea").value;
+			var mobileNumber = document.getElementById("mobile-number").value;
+			var password = document.getElementById("password").value;
+			var confirmPassword = document.getElementById("confirm-password").value;
+			var checkbox = document.getElementById("checkbox4").checked;
+
+			if (name === "" || address === "" || mobileNumber === "" || password === "" || confirmPassword === "" || !checkbox) {
+				alert("Please fill in all required fields and accept the terms and conditions.");
+				return false;
+			}
+			
+			if (password !== confirmPassword) {
+				alert("Passwords do not match.");
+				return false;
+			}
+			
+			return true;
+		}
+	</script>
+</body>
+</html>
